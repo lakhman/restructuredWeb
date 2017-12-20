@@ -1,0 +1,17 @@
+*.pyc
+tmp
+build
+dist
+parts
+eggs
+_build
+/.tox
+develop-eggs
+.eggs
+.cache
+*.egg
+*.egg-info
+.idea
+.python-version
+.coverage
+htmlcov

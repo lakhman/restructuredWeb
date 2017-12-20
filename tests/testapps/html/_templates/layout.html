@@ -1,0 +1,41 @@
+{%- macro script() %}
+    {%- for scriptfile in script_files %}
+    <script type="text/javascript" src="{{ pathto(scriptfile, 1) }}"></script>
+    {%- endfor %}
+{%- endmacro %}
+{%- macro css() %}
+    {%- for css in css_files %}
+    <link rel="stylesheet" href="{{ pathto(css, 1) }}" type="text/css" />
+    {%- endfor %}
+
+    <link rel="stylesheet" href="{{ pathto('_static/' + style, 1) }}" type="text/css" />
+{%- endmacro %}
+<!DOCTYPE html>
+  <head>
+    {%- block css %}
+    {{- css() }}
+    {%- endblock %}
+    {%- block scripts %}
+    {{- script() }}
+    {%- endblock %}
+{% block extrahead -%}
+    {%- if bootstrap_css_list %}
+    <style type="text/css">
+    {% for css in bootstrap_css_list -%}
+    {{ css }}
+    {% endfor -%}
+    </style>
+    {%- endif %}
+{%- endblock %}
+  </head>
+  <body>
+{% block body -%}{%- endblock %}
+    {%- if bootstrap_js_list %}
+    <script type="text/javascript">
+    {% for js in bootstrap_js_list -%}
+    {{ js }}
+    {% endfor -%}
+    </script>
+    {%- endif %}
+  </body>
+</html>

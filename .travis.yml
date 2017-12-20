@@ -1,0 +1,17 @@
+language: python
+sudo: false
+dist: trusty
+cache: pip
+
+matrix:
+  include:
+    - python: '2.7'
+      env: TOXENV=py27
+    - python: '3.3.6'
+      env: TOXENV=py336
+
+install:
+  - pip install -U tox
+
+script:
+  - tox -- -v

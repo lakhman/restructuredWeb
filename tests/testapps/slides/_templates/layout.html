@@ -1,0 +1,78 @@
+{#- Doctype -#}
+{%- block doctype -%}{% endblock %}
+
+{%- set render_sidebar = (not embedded) and (not theme_nosidebar|tobool) and
+                         (sidebars != []) -%}
+{%- set url_root = pathto('', 1) -%} {#- link to root url (like: '#', '../../') #}
+{%- if url_root == '#' -%}
+    {%- set url_root = '' -%}
+{%- endif -%}
+
+{%- if not embedded and docstitle -%}
+  {%- set titlesuffix = " &mdash; "|e + docstitle|e -%}
+{%- else -%}
+  {%- set titlesuffix = "" -%}
+{%- endif -%}
+
+{%- set prevchar = prevchar is not defined and ' &laquo; ' or prevchar -%}
+{%- set nextchar = nextchar is not defined and ' &raquo; ' or nextchar -%}
+{%- set archivechar = archivechar is not defined and ' &mdash; ' or archivechar -%}
+
+{%- if rss_service -%}
+    {%- set rss_feed_link = rss_service -%}
+{%- else -%}
+    {%- set rss_feed_link = pathto('rss') -%}
+{%- endif -%}
+
+{%- set rss_in_page_nav = rss_in_page_nav is not defined or rss_in_page_nav -%}
+{%- set rss_link_text = rss_link_text is not defined and None or rss_link_text -%}
+{%- set rss_symbol = rss_symbol is not defined or rss_symbol -%}
+
+{%- macro script() %}
+{%- endmacro -%}
+
+{%- macro css() -%}
+{%- endmacro -%}
+
+{#- RSS link -#}
+{%- macro rss_link() -%}
+{%- endmacro -%}
+
+{#- prev/next -#}
+{%- macro relbar() -%}
+{%- endmacro -%}
+
+{#- Timestamp -#}
+{%- macro timestamp(date) -%}
+{%- endmacro -%}
+
+{#- Author -#}
+{%- macro author(author_name) -%}
+{%- endmacro -%}
+
+{#- Categories -#}
+{%- macro category_list(post_categories) -%}
+{%- endmacro -%}
+
+{#- Tags -#}
+{%- macro tag_list(post_tags) -%}
+{%- endmacro -%}
+
+{#- Comment count -#}
+{%- macro comment_count(code) -%}
+{%- endmacro -%}
+
+{#- Post metadata -#}
+{%- macro post_meta(metadata, comment_count_code=None) -%}
+{%- endmacro -%}
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" crossorigin="anonymous">
+    </head>
+
+    <body class="container">
+        {% block body -%}{%- endblock %}
+    </body>
+</html>
