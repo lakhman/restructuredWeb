@@ -16,7 +16,7 @@ jinja2==2.9.6             # via sphinx
 markupsafe==1.0           # via jinja2
 pygments==2.2.0           # via sphinx
 pytz==2017.2              # via babel
-requests==2.18.1          # via sphinx
+requests==2.20.0          # via sphinx
 six==1.10.0
 snowballstemmer==1.2.1    # via sphinx
 sphinx==1.6.3
